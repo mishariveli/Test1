@@ -3,7 +3,7 @@ print("Hello, World! new 92101010")
 import psycopg2
 from psycopg2 import Error
 
-def fetch_name_salary(name):
+name = 'ahmed'
     connection = None
     try:
         # Establish a connection to the PostgreSQL database
@@ -21,8 +21,8 @@ def fetch_name_salary(name):
             cursor = connection.cursor()
 
             # Execute query to fetch salary
-            query = "SELECT salary FROM employees WHERE name = %s"
-            cursor.execute(query, (name,))
+            query = "SELECT salary FROM employees WHERE name = '{name}'"
+            cursor.execute(query)
 
             result = cursor.fetchone()
 
