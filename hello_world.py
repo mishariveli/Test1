@@ -9,7 +9,7 @@ conn_params = {
     'host': '192.168.200.86',  # e.g., 'localhost' or an IP address
     'port': '5432'   # e.g., '5432'
 }
-name = 'ahmed'
+name = 'khaled'
 try:
     # Establish a connection to the database
     conn = psycopg2.connect(**conn_params)
