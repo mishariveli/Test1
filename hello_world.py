@@ -1,8 +1,8 @@
 # hello_world.py
 print("Hello, World! new 92101010")
 
-import psycopg2-binary
-from psycopg2-binary import sql, Error
+import psycopg2
+from psycopg2 import sql, Error
 
 def fetch_user_salary(username):
     connection = None
