@@ -1,5 +1,3 @@
-print("Hello, World! new 92101010")
-
 import psycopg2
 from psycopg2 import sql
 
