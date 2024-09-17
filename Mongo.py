@@ -5,6 +5,7 @@ conn_params = {
     'host': 'mongodb://192.168.200.86:27017/',  # MongoDB URI
     'database': 'creative',  # Name of your MongoDB database
     'collection': 'employees'  # Name of your MongoDB collection
+        'collection': 'employees'  # Name of your MongoDB collection
 }
 
 # Define the first name
