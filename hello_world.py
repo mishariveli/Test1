@@ -10,9 +10,9 @@ def fetch_user_salary(username):
         # Establish a connection to the PostgreSQL database
         connection = psycopg2.connect(
             host='192.168.200.86',
-            user='postgre',
+            user='postgres',
             password='123456789',
-            database='postgre',
+            database='postgres',
             port='5432'
         )
 
