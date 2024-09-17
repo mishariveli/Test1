@@ -1,8 +1,7 @@
-# hello_world.py
 print("Hello, World! new 92101010")
 
 import psycopg2
-from psycopg2 import sql, Error
+from psycopg2 import Error
 
 def fetch_name_salary(name):
     connection = None
@@ -22,15 +21,15 @@ def fetch_name_salary(name):
             cursor = connection.cursor()
 
             # Execute query to fetch salary
-            query = "SELECT salary FROM name WHERE name = %s"
+            query = "SELECT salary FROM employees WHERE name = %s"
             cursor.execute(query, (name,))
 
             result = cursor.fetchone()
 
             if result:
-                print(f"Name {name} salary: {result[0]}")
+                print(f"Salary for {name}: {result[0]}")
             else:
-                print(f"Name {name} not found")
+                print(f"{name} not found")
 
     except Error as e:
         print(f"Error: {e}")
@@ -42,4 +41,4 @@ def fetch_name_salary(name):
             print("Database connection closed")
 
 if __name__ == "__main__":
-    fetch_salary("Ahmed")
+    fetch_name_salary("Ahmed")
