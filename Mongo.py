@@ -7,7 +7,7 @@ conn_params = {
     'collection': 'employees'  # Name of your MongoDB collection
 }
 
-first_name = 'Mark'
+first_name = 'khaled'
 
 try:
     # Establish a connection to the MongoDB database
@@ -31,4 +31,6 @@ try:
 except Exception as e:
     print(f"An error occurred: {e}")
 
-
+finally:
+    # Close the connection
+    client.close()
