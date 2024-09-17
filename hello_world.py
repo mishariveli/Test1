@@ -42,4 +42,4 @@ def fetch_name_salary(name):
             print("Database connection closed")
 
 if __name__ == "__main__":
-    fetch_name_salary("Ahmed")
+    fetch_salary("Ahmed")
