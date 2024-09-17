@@ -31,6 +31,5 @@ try:
 except Exception as e:
     print(f"An error occurred: {e}")
 
-finally:
-    # Close the connection
-    client.close()
+fi
+fi
