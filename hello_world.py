@@ -4,7 +4,7 @@ print("Hello, World! new 92101010")
 import psycopg2
 from psycopg2 import sql, Error
 
-def fetch_user_salary(username):
+def fetch_name_salary(name):
     connection = None
     try:
         # Establish a connection to the PostgreSQL database
@@ -28,9 +28,9 @@ def fetch_user_salary(username):
             result = cursor.fetchone()
 
             if result:
-                print(f"name {name} salary: {result[0]}")
+                print(f"Name {name} salary: {result[0]}")
             else:
-                print(f"name {name} not found")
+                print(f"Name {name} not found")
 
     except Error as e:
         print(f"Error: {e}")
