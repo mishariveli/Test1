@@ -1,41 +1,39 @@
 print("Hello, World! new 92101010")
 
 import psycopg2
-from psycopg2 import Error
+from psycopg2 import sql
 
+# Database connection parameters
+conn_params = {
+    'dbname': 'postgres',
+    'user': 'postgres',
+    'password': '123456789',
+    'host': '192.168.200.86',  # e.g., 'localhost' or an IP address
+    'port': '5432'   # e.g., '5432'
+}
 name = 'ahmed'
-connection = None
-    try:
-        # Establish a connection to the PostgreSQL database
-        connection = psycopg2.connect(
-            host='192.168.200.86',
-            user='postgres',
-            password='123456789',
-            database='postgres',
-            port='5432'
-        )
+try:
+    # Establish a connection to the database
+    conn = psycopg2.connect(**conn_params)
+    print("Connected to the database")
+    # Create a cursor object
+    cur = conn.cursor()
+    query = f"SELECT id, name, salary FROM employees WHERE name = '{name}';"
+    cur.execute(query)
+    # Define the query to select id, name, and salary from employees table
+    row = cur.fetchone()
 
-        if connection is not None:
-            print("Connected to the database")
+    if row:
+        print(f"ID: {row[0]}, Name: {row[1]}, Salary: {row[2]}")
+    else:
+        print(f"No record found with {name}")
 
-            cursor = connection.cursor()
+except psycopg2.Error as e:
+    print(f"An error occurred: {e}")
 
-            # Execute query to fetch salary
-            query = "SELECT salary FROM employees WHERE name = '{name}'"
-            cursor.execute(query)
-
-            result = cursor.fetchone()
-
-            if result:
-                print(f"Salary for {name}: {result[0]}")
-            else:
-                print(f"{name} not found")
-
-    except Error as e:
-        print(f"Error: {e}")
-
-    finally:
-        if connection is not None:
-            cursor.close()
-            connection.close()
-            print("Database connection closed")
+finally:
+    # Close the cursor and connection
+    if cur:
+        cur.close()
+    if conn:
+        conn.close()
