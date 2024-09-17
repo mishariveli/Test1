@@ -1,7 +1,7 @@
 # hello_world.py
 print("Hello, World! new 92101010")
-import mysql.connector
-from mysql.connector import Error
+import psycopg2
+from psycopg2 import sql, Error
 
 def fetch_user_salary(username):
     try:
