@@ -22,15 +22,15 @@ def fetch_user_salary(username):
             cursor = connection.cursor()
 
             # Execute query to fetch salary
-            query = "SELECT salary FROM users WHERE username = %s"
-            cursor.execute(query, (username,))
+            query = "SELECT salary FROM name WHERE name = %s"
+            cursor.execute(query, (name,))
 
             result = cursor.fetchone()
 
             if result:
-                print(f"User {username} salary: {result[0]}")
+                print(f"name {name} salary: {result[0]}")
             else:
-                print(f"User {username} not found")
+                print(f"name {name} not found")
 
     except Error as e:
         print(f"Error: {e}")
@@ -42,4 +42,4 @@ def fetch_user_salary(username):
             print("Database connection closed")
 
 if __name__ == "__main__":
-    fetch_user_salary("Ahmed")
+    fetch_name_salary("Ahmed")
