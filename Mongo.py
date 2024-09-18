@@ -7,7 +7,7 @@ conn_params = {
     'collection': 'employees'  # Name of your MongoDB collection
 }
 
-first_name = 'khaled'
+first_name = 'Mark'
 
 try:
     # Establish a connection to the MongoDB database
